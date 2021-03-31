@@ -1,8 +1,97 @@
+<!DOCTYPE html>
+
 <html lang="en">
     <head>
-        <title>hello</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+        function changecolor(event)
+        {
+            let trigger = event.srcElement;
+            if (trigger.id =="Pineapple" )
+            {
+                trigger.style.backgroundColor = "green";
+                answer.innerHTML =  "Correct";
+            }
+            else
+            {
+                trigger.style.backgroundColor = "red";
+                answer.innerHTML =  "Incorrect";
+            }
+
+        }
+
+
+
+        document.addEventListener('DOMContentLoaded',function()
+        {
+
+          document.addEventListener('submit',function()
+          {
+              let input = document.querySelector("input");
+              if (input.value.toUpperCase() =="TAIPEI")
+              {
+                  input.style.backgroundColor = "green";
+                  reply.innerHTML =  "Correct";
+              }
+              else
+              {
+                  input.style.backgroundColor = "red";
+                  reply.innerHTML =  "Incorrect";
+              }
+
+             })
+        });
+
+
+
+    </script>
+
     </head>
     <body>
-        hello, world
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>
+                    What is the least popular pizza in Italy ?
+                </h3>
+                <p id="answer"></p>
+
+                <!-- TODO: Add multiple choice question here -->
+
+                <button id ="Pineapple" onclick="changecolor(event)")>Pineapple</button>
+                <button id ="Margherita" onclick="changecolor(event)")>Margherita</button>
+                <button id ="Pepperoni" onclick="changecolor(event)")>Pepperoni</button>
+                <button id ="Chicken" onclick="changecolor(event)")>Chicken BBQ</button>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    What is the capital of Taiwan?
+                </h3>
+                <p id="reply"></p>
+                <form action="" onsubmit="return false">
+                <input autocomplete= "off" type = text id = "city" placeholder ="city">
+                <input type ="submit" value="Submit">
+                </form>
+
+            </div>
+
+        </div>
     </body>
 </html>
